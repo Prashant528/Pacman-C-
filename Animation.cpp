@@ -17,7 +17,7 @@ Animation::Animation(sf::Texture* texture,sf::Vector2u imageCount,float switchTi
     if(totalTime >= switchTime){
         totalTime -= switchTime;
         currentImage.x++;
-        if(currentImage.x > imageCount.x)
+        if(currentImage.x >= imageCount.x)
             currentImage.x=0;
 
     }
