@@ -17,7 +17,7 @@ private:
 
 public:
     pacmanClass(sf::Texture* texture,sf::Vector2u imageCount,float switchTime,float speed);
-    void Update(float deltaTime);
+    void Update(float deltaTime,sf::RenderWindow &window);
     void draw(sf::RenderWindow&);
 };
 

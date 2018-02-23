@@ -50,6 +50,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="pacman.cpp" />
 		<Unit filename="pacman.h" />
+		<Unit filename="villian.cpp" />
+		<Unit filename="villian.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
