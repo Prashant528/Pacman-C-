@@ -47,6 +47,8 @@
 		</Linker>
 		<Unit filename="Animation.cpp" />
 		<Unit filename="Animation.h" />
+		<Unit filename="block.cpp" />
+		<Unit filename="block.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="pacman.cpp" />
 		<Unit filename="pacman.h" />

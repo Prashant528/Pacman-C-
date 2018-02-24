@@ -11,7 +11,7 @@ private:
     int row;
     float speed;
     bool faceRight;
-    sf::Texture pacTexture;
+    //sf::Texture pacTexture;
     sf::IntRect uvRect;
 
 
