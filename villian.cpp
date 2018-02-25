@@ -1,6 +1,5 @@
 #include "villian.h"
 #include<ctime>
-#include "block.h"
 
 villian::villian(sf::Texture* texture, float speed,sf::Vector2f position,sf::Vector2f change){
     enemy.setRadius(30);
@@ -51,8 +50,7 @@ void villian::Update(float deltaTime,sf::RenderWindow &window,blockClass winBloc
         }
     }
 
-
-    enemy.move(change);
+    enemy.move(change * speed);
     enemy.rotate(0.02);
 
 }
@@ -61,3 +59,21 @@ void villian::draw(sf::RenderWindow &window){
     window.draw(enemy);
 }
 
+
+void kill(villian& vil, pacmanClass& pac,sf::RenderWindow& window){
+    sf::FloatRect smallRect = vil.enemy.getGlobalBounds();
+    sf::Vector2f pos = pac.head.getPosition();
+    if(smallRect.contains(pos)){
+        pacmanClass::life--;
+        pac.head.setPosition(20.0f,20.0f);
+        //dead text
+        /*sf::Font font;
+        font.loadFromFile("STENCIL.ttf");
+        sf::Text text("KILLED !",font,200);
+        text.setFillColor(sf::Color::White);
+        text.setPosition(100.0f,100.0f);
+        window.clear();
+        window.draw(text);*/
+        sf::sleep(sf::seconds(1));
+    }
+}

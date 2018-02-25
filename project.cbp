@@ -47,8 +47,15 @@
 		</Linker>
 		<Unit filename="Animation.cpp" />
 		<Unit filename="Animation.h" />
+		<Unit filename="MyWindow.cpp" />
+		<Unit filename="MyWindow.h" />
+		<Unit filename="Render.cpp" />
+		<Unit filename="Render.h" />
 		<Unit filename="block.cpp" />
 		<Unit filename="block.h" />
+		<Unit filename="display.h" />
+		<Unit filename="food.cpp" />
+		<Unit filename="food.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="pacman.cpp" />
 		<Unit filename="pacman.h" />

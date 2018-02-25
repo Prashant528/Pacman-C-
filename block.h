@@ -12,4 +12,5 @@ public:
     blockClass(sf::Vector2f position, sf::Texture *texture);
     void draw(sf::RenderWindow& window);
     friend class villian;
+    friend class pacmanClass;
 };
