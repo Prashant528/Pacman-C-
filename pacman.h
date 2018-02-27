@@ -24,7 +24,8 @@ private:
 public:
     static int score;
     static int life;
-    pacmanClass(sf::Texture* texture,sf::Vector2u imageCount,float switchTime,float speed);
+    static int level;
+    pacmanClass(sf::Texture* texture,sf::Vector2u imageCount,float switchTime,float speed,sf::Texture* heart);
     void Update(float deltaTime,sf::RenderWindow &window,blockClass winBlock);
     void draw(sf::RenderWindow&);
     friend void eaten(Food& ,pacmanClass&);
@@ -35,6 +36,8 @@ private:
     sf::Font font;
     sf::Text scoreText,scoreInText;
     sf::Text lifeText,lifeInText;
+    sf::Text levelText,levelInText;
+    sf::RectangleShape lifeSign;
 };
 
 #endif // PACMAN_H_

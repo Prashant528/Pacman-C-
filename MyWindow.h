@@ -3,12 +3,10 @@
 #include "villian.h"
 #include "block.h"
 #include "food.h"
-
-class MyWindow{
-private:
+#include <iostream>
 
 
-public:
-    MyWindow();
-    void run();
-};
+
+//other functions
+void showlevel();
+void game();

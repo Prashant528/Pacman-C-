@@ -66,14 +66,7 @@ void kill(villian& vil, pacmanClass& pac,sf::RenderWindow& window){
     if(smallRect.contains(pos)){
         pacmanClass::life--;
         pac.head.setPosition(20.0f,20.0f);
-        //dead text
-        /*sf::Font font;
-        font.loadFromFile("STENCIL.ttf");
-        sf::Text text("KILLED !",font,200);
-        text.setFillColor(sf::Color::White);
-        text.setPosition(100.0f,100.0f);
-        window.clear();
-        window.draw(text);*/
         sf::sleep(sf::seconds(1));
+
     }
 }

@@ -2,14 +2,18 @@
 #include<SFML/Graphics.hpp>
 #include "pacman.h"
 #include<vector>
+#include<fstream>
 class pacmanClass;
 
 class Food{
 private:                                                        //need to make the circle shape vector here !!
-     sf::CircleShape food[81];
+     std::vector<sf::CircleShape> food;
+     sf::CircleShape circle;
 public:
-    Food(int rad);
+    static int foodPresent;
+    Food(int rad, sf::RenderWindow& window);
     void displayFood(sf::RenderWindow &window);
-    friend void eaten(Food&,pacmanClass& );
+    friend void eaten(Food&,pacmanClass&);
+
 
 };

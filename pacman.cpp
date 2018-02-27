@@ -2,16 +2,20 @@
 #include<string>
 #include<stdlib.h>
 
-pacmanClass::pacmanClass(sf::Texture* texture,sf::Vector2u imageCount,float switchTime,float speed ):
+pacmanClass::pacmanClass(sf::Texture* texture,sf::Vector2u imageCount,float switchTime,float speed ,sf::Texture* heart):
     animation(texture,imageCount,switchTime)
     {
-    head.setSize(sf::Vector2f(50.0f,50.0f));
+    head.setSize(sf::Vector2f(40.0f,40.0f));
     head.setPosition(20.0f,20.0f);
     head.setTexture(texture);
     head.setOrigin(head.getSize().x/2,head.getSize().y/2);
     this->speed = speed;
     row = 0;
     faceRight=true;
+
+    lifeSign.setSize(sf::Vector2f(20.0f,20.0f));
+    lifeSign.setPosition(635.0f,7.0f);
+    lifeSign.setTexture(heart);
 
     //text stuff
     font.loadFromFile("STENCIL.ttf");
@@ -26,29 +30,41 @@ pacmanClass::pacmanClass(sf::Texture* texture,sf::Vector2u imageCount,float swit
     scoreInText.setCharacterSize(20);
     scoreInText.setFillColor(sf::Color::White);
 
-    lifeText.setFont(font);
-    lifeText.setString("LIFE: ");
-    lifeText.setPosition(600.0f , 5.0f);
-    lifeText.setCharacterSize(20);
-    lifeText.setFillColor(sf::Color::White);
 
     lifeInText.setFont(font);
     lifeInText.setPosition(660.0f , 5.0f);
     lifeInText.setCharacterSize(20);
     lifeInText.setFillColor(sf::Color::White);
 
+    lifeText.setFont(font);
+    lifeText.setString("LEVEL: ");
+    lifeText.setPosition(100.0f , 5.0f);
+    lifeText.setCharacterSize(20);
+    lifeText.setFillColor(sf::Color::White);
+
+    levelInText.setFont(font);
+    levelInText.setPosition(170.0f , 5.0f);
+    levelInText.setCharacterSize(20);
+    levelInText.setFillColor(sf::Color::White);
+
 }
 
 void pacmanClass::Update(float deltaTime,sf::RenderWindow &window,blockClass winBlock){
     //displaying score
-
     char *scp;
     itoa(score,scp,10);
     scoreInText.setString(scp);
+
     char slife;
     char *slp=&slife;
     itoa(life,slp,10);
     lifeInText.setString(slp);
+
+    char slevel;
+    char *slevelp;
+    slevelp = &slevel;
+    itoa(level,slevelp,10);
+    levelInText.setString(slevelp);
 
     //collision
     sf::Vector2f position;
@@ -107,6 +123,7 @@ void pacmanClass::Update(float deltaTime,sf::RenderWindow &window,blockClass win
         else
             faceRight = false;
     }
+
     animation.Update(row,deltaTime,faceRight);
     head.setTextureRect(animation.uvRect);
     head.move(position);
@@ -119,5 +136,8 @@ void pacmanClass::draw(sf::RenderWindow &window){
     window.draw(scoreInText);
     window.draw(lifeText);
     window.draw(lifeInText);
+    window.draw(levelText);
+    window.draw(levelInText);
+    window.draw(lifeSign);
 
 }
